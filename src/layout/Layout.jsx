@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var {toArray} = require('./childrenUtilies');
-require('./objectAssign');
+var objectAssign = require('object-assign');
 
 // regexes for parsing the size property
 var pxRegex = /((\d*\.)?\d+)px/;
@@ -214,7 +214,7 @@ var Layout = React.createClass({
             var debugColor = "rgba("+randByte()+","+randByte()+","+randByte()+",0.2)";
             layoutStyle.background = debugColor;
         }
-        var combinedStyle = Object.assign(layoutStyle, this.props.style);
+        var combinedStyle = objectAssign(layoutStyle, this.props.style);
 
         if (this.props.dontRender) {
             return null;
